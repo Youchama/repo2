@@ -32,5 +32,6 @@ jobs:
           git config --local user.name "Youchama"
           echo "Configuration ok"
           echo "Commit OK"
+          git remote add writ https://JCHworkflow:69fa5699ed1a47fba6cbebe22d4f6c26232ed0b6@github.com/Youchama/repo2.git
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
-          git push --force --quiet "https://JCH:c5c3ce3d31b12cddc2ff785f44032719da657461@github.com/Youchama/repo2.git" main:main
+          git push --force --quiet writ main
