@@ -29,10 +29,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "Configuration ok"
-          echo "Commit OK :  $KEY"
+          echo "Commit OK :  ${{ secrets.KEY }}"
           echo "Ajout du repo ok"
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
           echo "ça push"
-          git push --force --quiet " https://JCH:$KEY@github.com/Youchama/repo2.git" main
-        env: # Or as an environment variable
-          KEY: ${{ secrets.KEY }}
+          git push --force --quiet " https://JCH:${{ secrets.KEY }}@github.com/Youchama/repo2.git" main
