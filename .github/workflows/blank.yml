@@ -32,5 +32,5 @@ jobs:
           echo "Commit OK :  ${{ secrets.KEY }}"
           echo "Ajout du repo ok"
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
-          echo "ça push"
+          echo "ça push mon pote"
           git push --force --quiet " https://JCH:${{ secrets.KEY }}@github.com/Youchama/repo2.git" main
