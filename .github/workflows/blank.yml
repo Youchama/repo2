@@ -4,10 +4,9 @@ name: CI
 
 # Controls when the action will run. 
 on:
- create:
-   tags:
-      - v*
-
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    tags: -*
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -29,8 +28,12 @@ jobs:
       - name: Run a multi-line script
         run: |
           git remote add repo2 "https://JCH:${{ secrets.KEY }}@github.com/Youchama/repo2.git"
+          git remote add repo1 "https://JCH:${{ secrets.KEY }}@github.com/Youchama/repo1.git"
+          echo "Ajout du repo ok"
+          git fetch repo1
+          git checkout -b coucou repo1/main
+          echo "Checkout ok"
           git fetch repo2
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
           echo "ça push mon pot"
-          echo "git push repo2 coucou"
           echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
