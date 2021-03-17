@@ -29,6 +29,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           git config --local user.email "julien.chamayou@outlook.fr"
+          git config --local user.name "Youchama"
           git add .
           git commit -m "Github Actions Automatically Built in `date +"%Y-%m-%d %H:%M"`"
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
