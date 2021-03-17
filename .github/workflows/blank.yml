@@ -29,7 +29,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "Configuration ok"
-          echo "Commit OK"
+          echo "Commit OK :  ${{env.KEY}}"
           echo "Ajout du repo ok"
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
           echo "ça push"
