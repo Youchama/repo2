@@ -27,11 +27,11 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-      with: # Set the secret as an input
-        key: ${{ secrets.KEY }}
-      env: # Or as an environment variable
-        key: ${{ secrets.KEY }}
-      run: |
+        with: # Set the secret as an input
+          key: ${{ secrets.KEY }}
+        env: # Or as an environment variable
+          key: ${{ secrets.KEY }}
+        run: |
           echo "Configuration ok"
           echo "Commit OK :  $KEY"
           echo "Ajout du repo ok"
