@@ -35,4 +35,4 @@ jobs:
           echo "ça push"
           git push --force --quiet " https://JCH:$KEY@github.com/Youchama/repo2.git" main
         env: # Or as an environment variable
-          key: ${{ secrets.KEY }}
+          KEY: ${{ secrets.KEY }}
