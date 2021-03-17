@@ -31,7 +31,7 @@ jobs:
         key: ${{ secrets.KEY }}
       env: # Or as an environment variable
         key: ${{ secrets.KEY }}
-        run: |
+      run: |
           echo "Configuration ok"
           echo "Commit OK :  $KEY"
           echo "Ajout du repo ok"
