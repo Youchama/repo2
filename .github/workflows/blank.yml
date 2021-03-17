@@ -36,7 +36,6 @@ jobs:
           git fetch --unshallow repo1
           git checkout -b coucou repo1/main
           echo "Checkout ok"
-          git fetch --unshallow repo2
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
           echo "ça push mon pot"
           git push repo2 coucou
