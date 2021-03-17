@@ -33,4 +33,4 @@ jobs:
           echo "Ajout du repo ok"
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
           echo "ça push mon pot"
-          git push --force --quiet old main
+          git push old main
