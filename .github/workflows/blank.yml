@@ -28,9 +28,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo "Configuration ok"
-          echo "Commit OK :  ${{ secrets.KEY }}"
+          git remote add old "https://JCH:${{ secrets.KEY }}@github.com/Youchama/repo2.git"
+          git fetch --unshallow old
           echo "Ajout du repo ok"
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
           echo "ça push mon pot"
-          git push --force --quiet "https://JCH:${{ secrets.KEY }}@github.com/Youchama/repo2.git" main
+          git push --force --quiet old main
