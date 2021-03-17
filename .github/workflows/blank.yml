@@ -33,6 +33,7 @@ jobs:
           git remote add repo2 "https://JCH:${{ secrets.KEY }}@github.com/Youchama/repo2.git"
           git remote add repo1 "https://JCH:${{ secrets.KEY }}@github.com/Youchama/repo1.git"
           echo "Ajout du repo ok"
+          git fetch --unshallow repo1
           git checkout -b coucou repo1/main
           echo "Checkout ok"
           git fetch --unshallow repo2
