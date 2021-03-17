@@ -35,4 +35,4 @@ jobs:
           git fetch repo2
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
           echo "ça push mon pot"
-          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+          git push repo2 ${GITHUB_REF/refs\/tags\//}
