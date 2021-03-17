@@ -27,10 +27,6 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-        with: # Set the secret as an input
-          key: ${{ secrets.KEY }}
-        env: # Or as an environment variable
-          key: ${{ secrets.KEY }}
         run: |
           echo "Configuration ok"
           echo "Commit OK :  $KEY"
@@ -38,3 +34,7 @@ jobs:
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
           echo "ça push"
           git push --force --quiet " https://JCH:$KEY@github.com/Youchama/repo2.git" main
+        with: # Set the secret as an input
+          key: ${{ secrets.KEY }}
+        env: # Or as an environment variable
+          key: ${{ secrets.KEY }}
